@@ -1,0 +1,5 @@
+{
+  "name": "Sumon Age tracker",
+  "description": "A high-precision age countdown application that tracks your current age down to the second and displays past and upcoming birthdays.",
+  "requestFramePermissions": []
+}
