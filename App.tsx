@@ -194,7 +194,6 @@ const App: React.FC = () => {
   const lastBirthday = getLastBirthday(birthDate);
   const nextBirthday = getNextBirthday(birthDate);
   
-  const lastBirthdayAge = lastBirthday.getFullYear() - birthDate.getFullYear();
   const nextBirthdayAge = nextBirthday.getFullYear() - birthDate.getFullYear();
 
   const totalYearDuration = nextBirthday.getTime() - lastBirthday.getTime();
@@ -251,22 +250,13 @@ const App: React.FC = () => {
           {/* Right Column: History & Milestones */}
           <div className="space-y-6">
             
-            {/* Last & Next Birthday Section */}
+            {/* Birthday Timeline Section */}
             <section className="space-y-4">
               <div className="flex items-center gap-4 px-2 mb-3 opacity-50">
                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Birthday Timeline</span>
                  <div className="h-px bg-slate-300 flex-grow"></div>
               </div>
               
-              <BirthdayCard 
-                title="Last Birthday" 
-                date={lastBirthday} 
-                showCountdown={false} 
-                age={lastBirthdayAge}
-                theme="blue"
-                progress={100}
-              />
-
               <BirthdayCard 
                 title="Next Birthday" 
                 date={nextBirthday} 
