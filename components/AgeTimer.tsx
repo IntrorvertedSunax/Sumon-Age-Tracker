@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { AgeDetail, calculatePreciseAge, formatDate } from '../utils/dateUtils';
-import { ThemeColor } from './BirthdayCard';
+import { AgeDetail, calculatePreciseAge, formatDate } from '../utils/dateUtils.ts';
+import { ThemeColor } from './BirthdayCard.tsx';
 
 interface AgeTimerProps {
   birthDate: Date;

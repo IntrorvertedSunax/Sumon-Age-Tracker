@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import AgeTimer from './components/AgeTimer';
-import BirthdayCard from './components/BirthdayCard';
-import { getLastBirthday, getNextBirthday, getMilestoneBirthday, formatDate, calculatePreciseAge } from './utils/dateUtils';
-import { generateAgeInsight } from './services/geminiService';
+import AgeTimer from './components/AgeTimer.tsx';
+import BirthdayCard from './components/BirthdayCard.tsx';
+import { getLastBirthday, getNextBirthday, getMilestoneBirthday, formatDate, calculatePreciseAge } from './utils/dateUtils.ts';
+import { generateAgeInsight } from './services/geminiService.ts';
 import { CalendarIcon, PlusIcon, XMarkIcon, UserIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 interface UserData {
@@ -55,10 +55,15 @@ const App: React.FC = () => {
     if (userData) {
       const fetchInsight = async () => {
         setIsInsightLoading(true);
-        const age = calculatePreciseAge(userData.birthDate);
-        const text = await generateAgeInsight(age.years, age.months);
-        setInsight(text);
-        setIsInsightLoading(false);
+        try {
+          const age = calculatePreciseAge(userData.birthDate);
+          const text = await generateAgeInsight(age.years, age.months);
+          setInsight(text);
+        } catch (err) {
+          console.error("Failed to fetch insight:", err);
+        } finally {
+          setIsInsightLoading(false);
+        }
       };
       const timer = setTimeout(fetchInsight, 1000);
       return () => clearTimeout(timer);

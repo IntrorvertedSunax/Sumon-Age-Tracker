@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { formatDate, getFormattedDurationUntil } from '../utils/dateUtils';
+import { formatDate, getFormattedDurationUntil } from '../utils/dateUtils.ts';
 import { ClockIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 export type ThemeColor = 'teal' | 'orange' | 'purple' | 'blue' | 'rose' | 'indigo' | 'lime';
